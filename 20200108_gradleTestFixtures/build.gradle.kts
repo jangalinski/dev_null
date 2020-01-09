@@ -2,8 +2,17 @@ plugins {
     base
     idea
 
-    kotlin("jvm") version "1.3.61" apply false
+    kotlin("jvm") version embeddedKotlinVersion apply false
 }
+
+allprojects {
+  group = "com.github.jangalinski.devnull"
+
+  apply {
+    from("${rootProject.rootDir}/gradle/repositories.gradle.kts")
+  }
+}
+
 
 dependencies {
     subprojects.forEach {
